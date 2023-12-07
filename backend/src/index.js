@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get("/todos", async (req, res) => {
+  console.log("hello")
   const todos = await Todo.find();
   return res.status(200).json({
     todos,
@@ -45,7 +46,7 @@ app.delete("/todos/:id", async (req, res) => {
 });
 
 mongoose.connect(
-  "MONGO-URI",
+  "mongodb://mongodb/todos-app",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
